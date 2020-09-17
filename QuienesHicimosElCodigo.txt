@@ -1,0 +1,6 @@
+Participamos en el código:
+Jorge Javier Solorzano Davila - U201723941
+Carlos Danny Matos Gavino - U20181E932
+
+Ya esta correción de Agregar en BD, faltaba usar el Transactional
+
