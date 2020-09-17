@@ -17,13 +17,13 @@
 
 	<ui:define name="content">
 		<h:form>
-			<h:outputLabel for="CDNI" value="Id " styleClass="control-label" />
+			<h:outputLabel for="CDNI" value="DNI" styleClass="control-label" />
 
 			<p:inputText autocomplete="off" id="CDNI"
 				styleClass="form-control" value="#{usuarioController.usuario.CDNI}"
 				required="true" />
 				
-			<h:outputLabel for="NNombreyApellido" value="NNombreyApellido"
+			<h:outputLabel for="NNombreyApellido" value="Nombre y Apellido"
 				styleClass="control-label" />
 
 			<p:inputText autocomplete="off" id="NNombreyApellido"
@@ -31,7 +31,7 @@
 				value="#{usuarioController.usuario.NNombreyApellido}" maxlength="30"
 				required="true" />
 				
-			<h:outputLabel for="TCorreo" value="TCorreo"
+			<h:outputLabel for="TCorreo" value="Correo"
 				styleClass="control-label" />
 
 			<p:inputText autocomplete="off" id="TCorreo"
@@ -39,7 +39,7 @@
 				value="#{usuarioController.usuario.TCorreo}" maxlength="30"
 				required="true" />
 						
-			<h:outputLabel for="CContraseña" value="CContraseña"
+			<h:outputLabel for="CContraseña" value="Contraseña"
 				styleClass="control-label" />
 
 			<p:inputText autocomplete="off" id="CContraseña"
@@ -47,7 +47,7 @@
 				value="#{usuarioController.usuario.CContraseña}" maxlength="10"
 				required="true" />
 
-			<h:outputLabel for="FRegistro" value="FRegistro"
+			<h:outputLabel for="FRegistro" value="Fecha de Registro"
 				styleClass="control-label" />
 
 			<p:calendar id="FRegistro" pattern="dd/MM/yyyy"
