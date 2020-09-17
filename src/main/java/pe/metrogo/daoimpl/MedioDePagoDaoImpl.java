@@ -19,6 +19,7 @@ public class MedioDePagoDaoImpl implements IMedioDePagoDao, Serializable{
 	@PersistenceContext(unitName = "a")
 	private EntityManager em;
 
+	@Transactional
 	@Override
 	public void insertar(MedioDePago medio) {
 		// TODO Auto-generated method stub

@@ -19,6 +19,7 @@ public class EntidadBancariaDaoImpl implements IEntidadBancariaDao, Serializable
 	@PersistenceContext(unitName = "a")
 	private EntityManager em;
 
+	@Transactional
 	@Override
 	public void insertar(EntidadBancaria entidad) {
 		// TODO Auto-generated method stub

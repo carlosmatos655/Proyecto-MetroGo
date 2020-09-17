@@ -19,6 +19,7 @@ public class UsuarioDaoImpl implements IUsuarioDao, Serializable{
 	@PersistenceContext(unitName = "a")
 	private EntityManager em;
 	
+	@Transactional
 	@Override
 	public void insertar(Usuario usuario) {
 		// TODO Auto-generated method stub

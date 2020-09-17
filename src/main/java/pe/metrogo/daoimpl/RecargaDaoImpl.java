@@ -19,6 +19,7 @@ public class RecargaDaoImpl implements IRecargaDao, Serializable{
 	@PersistenceContext(unitName = "a")
 	private EntityManager em;
 
+	@Transactional
 	@Override
 	public void insertar(Recarga recarga) {
 		// TODO Auto-generated method stub
