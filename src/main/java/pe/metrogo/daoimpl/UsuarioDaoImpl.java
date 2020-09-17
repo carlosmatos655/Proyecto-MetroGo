@@ -36,7 +36,7 @@ public class UsuarioDaoImpl implements IUsuarioDao, Serializable{
 	public List<Usuario> listar() {
 		List<Usuario> lista = new ArrayList<Usuario>();
 		try {
-			Query q = em.createQuery("select m from Motor m");
+			Query q = em.createQuery("select u from Usuario u");
 			lista = (List<Usuario>) q.getResultList();
 		}
 		catch(Exception ex) {
