@@ -82,7 +82,7 @@ public class MedioDePagoController implements Serializable {
 		return listaMedios;
 	}
 
-	public void setListaUsuarios(List<MedioDePago> listaMedios) {
+	public void setListaMedios(List<MedioDePago> listaMedios) {
 		this.listaMedios = listaMedios;
 	}
 

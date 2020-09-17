@@ -9,21 +9,21 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-import pe.metrogo.entity.MedioDePago;
-import pe.metrogo.dao.IMedioDePagoDao;
+import pe.metrogo.entity.EntidadBancaria;
+import pe.metrogo.dao.IEntidadBancariaDao;
 
-public class MedioDePagoDaoImpl implements IMedioDePagoDao, Serializable{
-	
+public class EntidadBancariaDaoImpl implements IEntidadBancariaDao, Serializable{
+
 	private static final long serialVersionUID = 1L;
 	
 	@PersistenceContext(unitName = "a")
 	private EntityManager em;
 
 	@Override
-	public void insertar(MedioDePago medio) {
+	public void insertar(EntidadBancaria entidad) {
 		// TODO Auto-generated method stub
 		try {
-			em.persist(medio);
+			em.persist(entidad);
 		}
 		catch(Exception ex) {
 			System.out.println(ex.getMessage());
@@ -32,12 +32,12 @@ public class MedioDePagoDaoImpl implements IMedioDePagoDao, Serializable{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<MedioDePago> listar() {
+	public List<EntidadBancaria> listar() {
 		// TODO Auto-generated method stub
-		List<MedioDePago> lista = new ArrayList<MedioDePago>();
+		List<EntidadBancaria> lista = new ArrayList<EntidadBancaria>();
 		try {
-			Query q = em.createQuery("select mdp from MedioDePago mdp");
-			lista = (List<MedioDePago>) q.getResultList();
+			Query q = em.createQuery("select eb from EntidadBancaria eb");
+			lista = (List<EntidadBancaria>) q.getResultList();
 		}
 		catch(Exception ex) {
 			System.out.println(ex.getMessage());
@@ -47,18 +47,17 @@ public class MedioDePagoDaoImpl implements IMedioDePagoDao, Serializable{
 
 	@Transactional
 	@Override
-	public void eliminar(int CMedio) {
+	public void eliminar(int CEntidad) {
 		// TODO Auto-generated method stub
-		MedioDePago med = new MedioDePago();
+		EntidadBancaria ent = new EntidadBancaria();
 		try {
-			med = em.getReference(MedioDePago.class,CMedio);
-			em.remove(med);
+			ent = em.getReference(EntidadBancaria.class,CEntidad);
+			em.remove(ent);
 		}
 		catch(Exception ex) {
 			System.out.println(ex.getMessage());
-		}				
+		}
 	}
-	
 	
 	
 }
