@@ -36,7 +36,7 @@ public class RecargaDaoImpl implements IRecargaDao, Serializable{
 	public List<Recarga> listar() {
 		List<Recarga> lista = new ArrayList<Recarga>();
 		try {
-			Query q = em.createQuery("select m from Motor m");
+			Query q = em.createQuery("select r from Recarga r");
 			lista = (List<Recarga>) q.getResultList();
 		}
 		catch(Exception ex) {
