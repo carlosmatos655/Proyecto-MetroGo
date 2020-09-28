@@ -7,5 +7,5 @@ import pe.metrogo.entity.Usuario;
 public interface IUsuarioService {
 	public void insertar(Usuario usuario);
 	public List<Usuario> listar();
-	public void eliminar(int CDNI);
+	public void eliminar(int CUsuario);
 }

@@ -31,7 +31,7 @@ public class UsuarioServiceImpl implements IUsuarioService, Serializable{
 	}
 
 	@Override
-	public void eliminar(int CDNI) {
-		uD.eliminar(CDNI);		
+	public void eliminar(int CUsuario) {
+		uD.eliminar(CUsuario);		
 	}
 }

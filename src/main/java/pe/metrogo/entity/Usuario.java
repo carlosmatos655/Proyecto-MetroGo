@@ -17,7 +17,7 @@ public class Usuario implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int CDNI;
+	private int CUsuario;
 	
 	@Column(name="NNombreyApellido", nullable=false, length=30)
 	private String NNombreyApellido;
@@ -28,28 +28,28 @@ public class Usuario implements Serializable{
 	@Column(name="CContraseña", nullable=false, length=10)
 	private String CContraseña;
 	
-	private Date FRegistro;
+	private Date FNacimiento;
 
 	public Usuario() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Usuario(int cDNI, String nNombreyApellido, String tCorreo, String cContraseña, Date fRegistro) {
+	public Usuario(int cUsuario, String nNombreyApellido, String tCorreo, String cContraseña, Date fNacimiento) {
 		super();
-		CDNI = cDNI;
+		CUsuario = cUsuario;
 		NNombreyApellido = nNombreyApellido;
 		TCorreo = tCorreo;
 		CContraseña = cContraseña;
-		FRegistro = fRegistro;
+		FNacimiento = fNacimiento;
 	}
 
-	public int getCDNI() {
-		return CDNI;
+	public int getCUsuario() {
+		return CUsuario;
 	}
 
-	public void setCDNI(int cDNI) {
-		CDNI = cDNI;
+	public void setCUsuario(int cUsuario) {
+		CUsuario = cUsuario;
 	}
 
 	public String getNNombreyApellido() {
@@ -76,12 +76,12 @@ public class Usuario implements Serializable{
 		CContraseña = cContraseña;
 	}
 
-	public Date getFRegistro() {
-		return FRegistro;
+	public Date getFNacimiento() {
+		return FNacimiento;
 	}
 
-	public void setFRegistro(Date fRegistro) {
-		FRegistro = fRegistro;
+	public void setFNacimiento(Date fNacimiento) {
+		FNacimiento = fNacimiento;
 	}
 	
 	

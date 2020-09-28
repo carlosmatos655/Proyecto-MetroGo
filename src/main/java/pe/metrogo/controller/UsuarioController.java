@@ -61,7 +61,7 @@ public class UsuarioController implements Serializable {
 	
 	public void eliminar(Usuario us) {
 		try {
-			uService.eliminar(us.getCDNI());
+			uService.eliminar(us.getCUsuario());
 			this.listar();
 		}
 		catch(Exception ex) {

@@ -17,10 +17,10 @@
 
 	<ui:define name="content">
 		<h:form>
-			<h:outputLabel for="CDNI" value="DNI" styleClass="control-label" />
+			<h:outputLabel for="CUsuario" value="Codigo Usuario" styleClass="control-label" />
 
-			<p:inputText autocomplete="off" id="CDNI"
-				styleClass="form-control" value="#{usuarioController.usuario.CDNI}"
+			<p:inputText autocomplete="off" id="CUsuario"
+				styleClass="form-control" value="#{usuarioController.usuario.CUsuario}"
 				required="true" />
 				
 			<h:outputLabel for="NNombreyApellido" value="Nombre y Apellido"
@@ -47,16 +47,16 @@
 				value="#{usuarioController.usuario.CContraseña}" maxlength="10"
 				required="true" />
 
-			<h:outputLabel for="FRegistro" value="Fecha de Registro"
+			<h:outputLabel for="FNacimiento" value="Fecha de Nacimiento"
 				styleClass="control-label" />
 
-			<p:calendar id="FRegistro" pattern="dd/MM/yyyy"
-				value="#{usuarioController.usuario.FRegistro}" showOn="button"
+			<p:calendar id="FNacimiento" pattern="dd/MM/yyyy"
+				value="#{usuarioController.usuario.FNacimiento}" showOn="button"
 				timeZone="UTC" required="true">
 			</p:calendar>
 			<br />
 
-			<p:commandButton value="Grabar"
+			<p:commandButton value="Registrar"
 				actionListener="#{usuarioController.insertar()}"
 				styleClass="btn btn-primary " update="@form"
 				action="listUsuario?faces-redirect=true" />

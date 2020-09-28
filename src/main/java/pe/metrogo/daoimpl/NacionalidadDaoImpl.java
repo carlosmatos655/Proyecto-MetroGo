@@ -9,10 +9,10 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-import pe.metrogo.entity.Usuario;
-import pe.metrogo.dao.IUsuarioDao;
+import pe.metrogo.dao.INacionalidadDao;
+import pe.metrogo.entity.Nacionalidad;
 
-public class UsuarioDaoImpl implements IUsuarioDao, Serializable{
+public class NacionalidadDaoImpl implements INacionalidadDao, Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -21,10 +21,10 @@ public class UsuarioDaoImpl implements IUsuarioDao, Serializable{
 	
 	@Transactional
 	@Override
-	public void insertar(Usuario usuario) {
+	public void insertar(Nacionalidad nacionalidad) {
 		// TODO Auto-generated method stub
 		try {
-			em.persist(usuario);
+			em.persist(nacionalidad);
 		}
 		catch(Exception ex) {
 			System.out.println(ex.getMessage());
@@ -33,11 +33,11 @@ public class UsuarioDaoImpl implements IUsuarioDao, Serializable{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Usuario> listar() {
-		List<Usuario> lista = new ArrayList<Usuario>();
+	public List<Nacionalidad> listar() {
+		List<Nacionalidad> lista = new ArrayList<Nacionalidad>();
 		try {
-			Query q = em.createQuery("select u from Usuario u");
-			lista = (List<Usuario>) q.getResultList();
+			Query q = em.createQuery("select n from Nacionalidad n");
+			lista = (List<Nacionalidad>) q.getResultList();
 		}
 		catch(Exception ex) {
 			System.out.println(ex.getMessage());
@@ -47,15 +47,16 @@ public class UsuarioDaoImpl implements IUsuarioDao, Serializable{
 
 	@Transactional
 	@Override
-	public void eliminar(int CUsuario) {
-		Usuario usu = new Usuario();
+	public void eliminar(int CNacionalidad) {
+		// TODO Auto-generated method stub
+		Nacionalidad nac = new Nacionalidad();
 		try {
-			usu = em.getReference(Usuario.class,CUsuario);
-			em.remove(usu);
+			nac = em.getReference(Nacionalidad.class,CNacionalidad);
+			em.remove(nac);
 		}
 		catch(Exception ex) {
 			System.out.println(ex.getMessage());
-		}				
+		}	
 	}
 
 }
