@@ -31,14 +31,14 @@ public class TTMetroController implements Serializable{
 	}
 	
 	public String nuevoTTMetro() {
-		this.setTTMetro(new TTMetro());
+		this.setTtmetro(new TTMetro());
 		return "ttmetro.xhtml";
 	}
 	
 	public void insertar() {
 		try {
 			tService.insertar(ttmetro);
-			limpiarNacionalidad();
+			limpiarTTMetro();
 			this.listar();
 		}
 		catch(Exception ex) {
@@ -55,7 +55,7 @@ public class TTMetroController implements Serializable{
 		}		
 	}
 	
-	public void limpiarNacionalidad() {
+	public void limpiarTTMetro() {
 		this.init();
 	}
 	
@@ -68,12 +68,12 @@ public class TTMetroController implements Serializable{
 			System.out.println(ex.getMessage());
 		}			
 	}
-	
-	public TTMetro getTTMetro() {
+
+	public TTMetro getTtmetro() {
 		return ttmetro;
 	}
 
-	public void setTTMetro(TTMetro ttmetro) {
+	public void setTtmetro(TTMetro ttmetro) {
 		this.ttmetro = ttmetro;
 	}
 
@@ -86,3 +86,4 @@ public class TTMetroController implements Serializable{
 	}
 	
 }
+
