@@ -23,6 +23,34 @@ public class MedioDePago implements Serializable{
 	@Column(name="NMedio", nullable=false, length=30)
 	private String NMedio;
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + CMedio;
+		result = prime * result + ((NMedio == null) ? 0 : NMedio.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MedioDePago other = (MedioDePago) obj;
+		if (CMedio != other.CMedio)
+			return false;
+		if (NMedio == null) {
+			if (other.NMedio != null)
+				return false;
+		} else if (!NMedio.equals(other.NMedio))
+			return false;
+		return true;
+	}
+
 	public MedioDePago() {
 		super();
 		// TODO Auto-generated constructor stub

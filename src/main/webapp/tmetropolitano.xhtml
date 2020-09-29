@@ -31,28 +31,22 @@
 				timeZone="UTC" required="true">
 			</p:calendar>
 			
-			<br />
-			
-			<h:outputLabel for="CTTMetro" value="Tipo de Tarjeta Metro" styleClass="control-label" />
-				
-			<p:selectOneMenu id="ttmetro"
+			<p:outputLabel for="CTTMetro" value="Tipo de Tarjeta Metro" />
+			<p:selectOneMenu id="CTTMetro"
 				value="#{tMetropolitanoController.tmetropolitano.ttmetro}"
 				converter="omnifaces.SelectItemsConverter">
 				<f:selectItems value="#{tMetropolitanoController.listaTTMetros}" var="a"
 					itemLabel="#{a.NTTMetro}" itemValue="#{a}" />
 			</p:selectOneMenu>
 			
-			<br />
-			
-			<h:outputLabel for="CUsuario" value="Usuario" styleClass="control-label" />
-			
-			<p:selectOneMenu id="usuario"
+			<p:outputLabel for="CUsuario" value="Usuario" />
+			<p:selectOneMenu id="CUsuario"
 				value="#{tMetropolitanoController.tmetropolitano.usuario}"
 				converter="omnifaces.SelectItemsConverter">
 				<f:selectItems value="#{tMetropolitanoController.listaUsuarios}" var="a"
-					itemLabel="#{a.CUsuario}" itemValue="#{a}" />
-			</p:selectOneMenu>	
-
+					itemLabel="#{a.NNombreyApellido}" itemValue="#{a}" />
+			</p:selectOneMenu>
+			
 			<br />
 
 			<p:commandButton value="Registrar"

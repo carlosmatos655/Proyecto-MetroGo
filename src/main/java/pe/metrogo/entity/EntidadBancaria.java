@@ -32,6 +32,34 @@ public class EntidadBancaria implements Serializable{
 		CEntidad = cEntidad;
 		NEntidad = nEntidad;
 	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + CEntidad;
+		result = prime * result + ((NEntidad == null) ? 0 : NEntidad.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		EntidadBancaria other = (EntidadBancaria) obj;
+		if (CEntidad != other.CEntidad)
+			return false;
+		if (NEntidad == null) {
+			if (other.NEntidad != null)
+				return false;
+		} else if (!NEntidad.equals(other.NEntidad))
+			return false;
+		return true;
+	}
 
 	public int getCEntidad() {
 		return CEntidad;

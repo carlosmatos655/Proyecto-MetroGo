@@ -21,6 +21,34 @@ public class TTMetro implements Serializable {
 	@Column(name = "NNacionalidad", nullable = false, length = 30)
 	private String NTTMetro;
 	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + CTTMetro;
+		result = prime * result + ((NTTMetro == null) ? 0 : NTTMetro.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TTMetro other = (TTMetro) obj;
+		if (CTTMetro != other.CTTMetro)
+			return false;
+		if (NTTMetro == null) {
+			if (other.NTTMetro != null)
+				return false;
+		} else if (!NTTMetro.equals(other.NTTMetro))
+			return false;
+		return true;
+	}
+
 	public TTMetro() {
 		super();
 		// TODO Auto-generated constructor stub

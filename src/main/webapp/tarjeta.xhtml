@@ -37,16 +37,23 @@
 				value="#{tarjetaController.tarjeta.entidad}"
 				converter="omnifaces.SelectItemsConverter">
 				<f:selectItems value="#{tarjetaController.listaEntidades}" var="a"
-					itemLabel="#{a}" itemValue="#{a}" />
+					itemLabel="#{a.NEntidad}" itemValue="#{a}" />
 			</p:selectOneMenu>	
 				
+			<p:outputLabel for="CMedio" value="Tipo de Tarjeta" />
+			<p:selectOneMenu id="CMedio"
+				value="#{tarjetaController.tarjeta.medio}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{tarjetaController.listaMedios}" var="a"
+					itemLabel="#{a.NMedio}" itemValue="#{a}" />
+			</p:selectOneMenu>		
 				
 			<p:commandButton value="Registrar"
-				actionListener="#{nacionalidadController.insertar()}"
+				actionListener="#{tarjetaController.insertar()}"
 				styleClass="btn btn-primary " update="@form"
-				action="listNacionalidad?faces-redirect=true" />
+				action="listTarjeta?faces-redirect=true" />
 			<p:commandButton value="Cancelar"
-				action="listNacionalidad?faces-redirect=true" immediate="true"
+				action="listTarjeta?faces-redirect=true" immediate="true"
 				styleClass="btn btn-default" ajax="false" />
 
 			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
