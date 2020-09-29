@@ -31,6 +31,12 @@ public class UsuarioServiceImpl implements IUsuarioService, Serializable{
 	}
 
 	@Override
+	public List<Usuario> findByNameUsuario(Usuario usu) {
+		// TODO Auto-generated method stub
+		return uD.findByNameUsuario(usu);
+	}
+	
+	@Override
 	public void eliminar(int CUsuario) {
 		uD.eliminar(CUsuario);		
 	}

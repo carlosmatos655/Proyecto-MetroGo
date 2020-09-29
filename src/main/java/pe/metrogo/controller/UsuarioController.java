@@ -76,6 +76,18 @@ public class UsuarioController implements Serializable {
 		}
 	}
 	
+	public void findByNameUsuario() {
+		try {
+			if (usuario.getNNombreyApellido().isEmpty()) {
+				this.listar();
+			} else {
+				listaUsuarios = this.uService.findByNameUsuario(this.getUsuario());
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
 	public void limpiarUsuario() {
 		this.init();
 	}

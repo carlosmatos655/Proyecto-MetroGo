@@ -45,6 +45,20 @@ public class UsuarioDaoImpl implements IUsuarioDao, Serializable{
 		return lista;
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Usuario> findByNameUsuario(Usuario usu) {
+		List<Usuario> lista = new ArrayList<Usuario>();
+		try {
+			Query q = em.createQuery("from Usuario u where u.NNombreyApellido like ?1");
+			q.setParameter(1, "%" + usu.getNNombreyApellido() + "%");
+			lista = (List<Usuario>) q.getResultList();
+		} catch (Exception e) {
+			System.out.println("Error al listar usuario");
+		}
+		return lista;
+	}
+
 	@Transactional
 	@Override
 	public void eliminar(int CUsuario) {

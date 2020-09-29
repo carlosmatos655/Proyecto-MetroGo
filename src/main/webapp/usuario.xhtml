@@ -59,8 +59,8 @@
 			<p:selectOneMenu id="CNacionalidad"
 				value="#{usuarioController.usuario.nacionalidad}"
 				converter="omnifaces.SelectItemsConverter">
-				<f:selectItems value="#{usuarioController.listaUsuarios}" var="a"
-					itemLabel="#{a.nacionalidad}" itemValue="#{a}" />
+				<f:selectItems value="#{usuarioController.listaNacionalidades}" var="a"
+					itemLabel="#{a.NNacionalidad}" itemValue="#{a}" />
 			</p:selectOneMenu>
 			
 			<br />

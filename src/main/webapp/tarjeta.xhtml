@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Tarjetas:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Tarjeta</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="CTarjeta" value="Número de Tarjeta" styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="CTarjeta"
+				styleClass="form-control" value="#{tarjetaController.tarjeta.CTarjeta}" maxlength="16"
+				required="true" />
+				
+			<h:outputLabel for="NTitular" value="Nombre del Titular"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="NTitular"
+				styleClass="form-control"
+				value="#{tarjetaController.tarjeta.NTitular}" maxlength="30"
+				required="true" />
+			<br />	
+			
+			<p:outputLabel for="CEntidad" value="Entidad Bancaria" />
+			<p:selectOneMenu id="CEntidad"
+				value="#{tarjetaController.tarjeta.entidad}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{tarjetaController.listaEntidades}" var="a"
+					itemLabel="#{a}" itemValue="#{a}" />
+			</p:selectOneMenu>	
+				
+				
+			<p:commandButton value="Registrar"
+				actionListener="#{nacionalidadController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listNacionalidad?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listNacionalidad?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>
