@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Promociones:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Promocion</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="CPromocion" value="Codigo de Promocion" styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="CPromocion"
+				styleClass="form-control" value="#{promocionController.promocion.CPromocion}"
+				required="true" />
+				
+			<h:outputLabel for="NPromocion" value="Promocion"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="NPromocion"
+				styleClass="form-control"
+				value="#{promocionController.promocion.NPromocion}" maxlength="30"
+				required="true" />
+				
+			<h:outputLabel for="DInicio" value="Fecha de Inicio"
+				styleClass="control-label" />
+
+			<p:calendar id="DInicio" pattern="dd/MM/yyyy"
+				value="#{promocionController.promocion.DInicio}" showOn="button"
+				timeZone="UTC" required="true">
+			</p:calendar>
+				
+			<br />
+				
+			<h:outputLabel for="DFin" value="Fecha de Fin"
+				styleClass="control-label" />
+
+			<p:calendar id="DFin" pattern="dd/MM/yyyy"
+				value="#{promocionController.promocion.DFin}" showOn="button"
+				timeZone="UTC" required="true">
+			</p:calendar>	
+				
+			<br />	
+				
+			<h:outputLabel for="TDescripcion" value="Descripcion"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="TDescripcion"
+				styleClass="form-control"
+				value="#{promocionController.promocion.TDescipcion}" maxlength="50"
+				required="true" />
+								
+			<br />	
+				
+			<p:commandButton value="Registrar"
+				actionListener="#{promocionController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listPromocion?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listPromocion?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

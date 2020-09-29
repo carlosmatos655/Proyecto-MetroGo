@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -29,19 +31,24 @@ public class Usuario implements Serializable{
 	private String CContraseña;
 	
 	private Date FNacimiento;
+	
+	@ManyToOne
+	@JoinColumn(name = "CNacionalidad", nullable = false)
+	private Nacionalidad nacionalidad;
 
 	public Usuario() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Usuario(int cUsuario, String nNombreyApellido, String tCorreo, String cContraseña, Date fNacimiento) {
+	public Usuario(int cUsuario, String nNombreyApellido, String tCorreo, String cContraseña, Date fNacimiento, Nacionalidad nacionalidad) {
 		super();
 		CUsuario = cUsuario;
 		NNombreyApellido = nNombreyApellido;
 		TCorreo = tCorreo;
 		CContraseña = cContraseña;
 		FNacimiento = fNacimiento;
+		this.nacionalidad = nacionalidad;
 	}
 
 	public int getCUsuario() {
@@ -83,7 +90,12 @@ public class Usuario implements Serializable{
 	public void setFNacimiento(Date fNacimiento) {
 		FNacimiento = fNacimiento;
 	}
-	
-	
-	
+
+	public Nacionalidad getNacionalidad() {
+		return nacionalidad;
+	}
+
+	public void setNacionalidad(Nacionalidad nacionalidad) {
+		this.nacionalidad = nacionalidad;
+	}
 }

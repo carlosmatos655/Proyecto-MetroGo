@@ -9,7 +9,9 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import pe.metrogo.entity.Nacionalidad;
 import pe.metrogo.entity.Usuario;
+import pe.metrogo.service.INacionalidadService;
 import pe.metrogo.service.IUsuarioService;
 
 @Named
@@ -20,25 +22,36 @@ public class UsuarioController implements Serializable {
 	
 	@Inject
 	private IUsuarioService uService;
+	
+	@Inject
+	private INacionalidadService nService;
+	
 	private Usuario usuario;
+	private Nacionalidad nacionalidad;
+	
 	List<Usuario> listaUsuarios;
+	List<Nacionalidad> listaNacionalidades;
 	
 	@PostConstruct
 	public void init() {
 		this.listaUsuarios = new ArrayList<Usuario>();
+		this.listaNacionalidades = new ArrayList<Nacionalidad>();
 		this.usuario = new Usuario();
+		this.nacionalidad = new Nacionalidad();
 		this.listar();
+		this.listaNacionalidades();
 	}
 	
 	public String nuevoUsuario() {
 		this.setUsuario(new Usuario());
+		listaNacionalidades = nService.listar();
 		return "usuario.xhtml";
 	}
 	
 	public void insertar() {
 		try {
 			uService.insertar(usuario);
-			limpiarUsuario();
+			this.limpiarUsuario();
 			this.listar();
 		}
 		catch(Exception ex) {
@@ -55,6 +68,14 @@ public class UsuarioController implements Serializable {
 		}		
 	}
 	
+	public void listaNacionalidades() {
+		try {
+			listaNacionalidades = nService.listar();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
 	public void limpiarUsuario() {
 		this.init();
 	}
@@ -69,7 +90,6 @@ public class UsuarioController implements Serializable {
 		}			
 	}
 	
-
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -85,4 +105,21 @@ public class UsuarioController implements Serializable {
 	public void setListaUsuarios(List<Usuario> listaUsuarios) {
 		this.listaUsuarios = listaUsuarios;
 	}
+	
+	public List<Nacionalidad> getListaNacionalidades() {
+		return listaNacionalidades;
+	}
+
+	public void setListaNacionalidades(List<Nacionalidad> listaNacionalidades) {
+		this.listaNacionalidades = listaNacionalidades;
+	}
+
+	public Nacionalidad getNacionalidad() {
+		return nacionalidad;
+	}
+
+	public void setNacionalidad(Nacionalidad nacionalidad) {
+		this.nacionalidad = nacionalidad;
+	}
+	
 }

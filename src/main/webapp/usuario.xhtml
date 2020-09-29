@@ -54,6 +54,15 @@
 				value="#{usuarioController.usuario.FNacimiento}" showOn="button"
 				timeZone="UTC" required="true">
 			</p:calendar>
+			
+			<p:outputLabel for="CNacionalidad" value="Nacionalidad" />
+			<p:selectOneMenu id="CNacionalidad"
+				value="#{usuarioController.usuario.nacionalidad}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{usuarioController.listaUsuarios}" var="a"
+					itemLabel="#{a.nacionalidad}" itemValue="#{a}" />
+			</p:selectOneMenu>
+			
 			<br />
 
 			<p:commandButton value="Registrar"
