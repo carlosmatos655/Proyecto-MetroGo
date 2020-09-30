@@ -48,7 +48,7 @@ public class TMetropolitanoController implements Serializable{
 		this.tmetropolitano = new TMetropolitano();
 		this.usuario = new Usuario();
 		this.listar();
-		this.listTMetropolitano();
+		this.listTTMetro();
 		this.listUsuario();
 	}
 	
@@ -81,9 +81,9 @@ public class TMetropolitanoController implements Serializable{
 		this.init();
 	}
 	
-	public void listTMetropolitano() {
+	public void listTTMetro() {
 		try {
-			listaTMetropolitanos = tmService.listar();
+			listaTTMetros = ttService.listar();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

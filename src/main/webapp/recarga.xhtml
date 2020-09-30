@@ -31,6 +31,43 @@
 				value="#{recargaController.recarga.MMonto}"
 				required="true" />
 				
+			<h:outputLabel for="DFecha" value="Fecha de Recarga"
+				styleClass="control-label" />
+
+			<p:calendar id="DFecha" pattern="dd/MM/yyyy"
+				value="#{recargaController.recarga.DFecha}" showOn="button"
+				timeZone="UTC" required="true">
+			</p:calendar>	
+			
+			<br/>					
+			<p:outputLabel for="CTarjetaMetro" value="Tarjeta Metropolitano" />
+			<p:selectOneMenu id="CTarjetaMetro"
+				value="#{recargaController.recarga.tmetropolitano}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{recargaController.listaTMetropolitanos}" var="a"
+					itemLabel="#{a.CTarjetaMetro}" itemValue="#{a}" />
+			</p:selectOneMenu>	
+			
+			<br/>
+			<p:outputLabel for="CTarjeta" value="Tarjeta De Pago" />
+			<p:selectOneMenu id="CTarjeta"
+				value="#{recargaController.recarga.tarjeta}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{recargaController.listaTarjetas}" var="a"
+					itemLabel="#{a.CTarjeta}" itemValue="#{a}" />
+			</p:selectOneMenu>	
+			
+			<br/>
+			<p:outputLabel for="CPromocion" value="Promocion" />
+			<p:selectOneMenu id="CPromocion"
+				value="#{recargaController.recarga.promocion}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{recargaController.listaPromociones}" var="a"
+					itemLabel="#{a.NPromocion}" itemValue="#{a}" />
+			</p:selectOneMenu>						
+								
+			<br/>
+							
 			<p:commandButton value="Grabar"
 				actionListener="#{recargaController.insertar()}"
 				styleClass="btn btn-primary " update="@form"

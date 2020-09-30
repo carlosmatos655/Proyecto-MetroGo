@@ -49,6 +49,27 @@
 								<h:outputText value="#{rec.MMonto}" />
 							</p:column>
 							
+							<p:column headerText="Fecha de Recarga" sortBy="#{rec.DFecha}">
+								<h:outputText value="#{rec.DFecha}">
+									<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
+								</h:outputText>
+							</p:column>
+							
+							<p:column headerText="Tarjeta Metropolitano"
+								sortBy="#{rec.tmetropolitano.CTarjetaMetro}">
+								<h:outputText value="#{rec.tmetropolitano.CTarjetaMetro}" />
+							</p:column>
+							
+							<p:column headerText="Promocion"
+								sortBy="#{rec.promocion.NPromocion}">
+								<h:outputText value="#{rec.promocion.NPromocion}" />
+							</p:column>
+													
+							<p:column headerText="Tarjeta De Pago"
+								sortBy="#{rec.tarjeta.CTarjeta}">
+								<h:outputText value="#{rec.tarjeta.CTarjeta}" />
+							</p:column>
+							
 						</p:dataTable>
 					</div>
 				</div>				
