@@ -53,8 +53,8 @@
 			<p:selectOneMenu id="CTarjeta"
 				value="#{recargaController.recarga.tarjeta}"
 				converter="omnifaces.SelectItemsConverter">
-				<f:selectItems value="#{recargaController.listaTarjetas}" var="a"
-					itemLabel="#{a.CTarjeta}" itemValue="#{a}" />
+				<f:selectItems value="#{recargaController.listaTarjetas}" var="b"
+					itemLabel="#{b.CTarjeta}" itemValue="#{b}" />
 			</p:selectOneMenu>	
 			
 			<br/>
@@ -62,8 +62,8 @@
 			<p:selectOneMenu id="CPromocion"
 				value="#{recargaController.recarga.promocion}"
 				converter="omnifaces.SelectItemsConverter">
-				<f:selectItems value="#{recargaController.listaPromociones}" var="a"
-					itemLabel="#{a.NPromocion}" itemValue="#{a}" />
+				<f:selectItems value="#{recargaController.listaPromociones}" var="c"
+					itemLabel="#{c.NPromocion}" itemValue="#{c}" />
 			</p:selectOneMenu>						
 								
 			<br/>

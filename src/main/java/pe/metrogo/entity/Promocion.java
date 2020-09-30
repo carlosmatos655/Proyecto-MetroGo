@@ -16,7 +16,7 @@ public class Promocion implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int CPromocion;
 
 	@Column(name = "NPromocion", nullable = false, length = 30)
@@ -33,6 +33,58 @@ public class Promocion implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + CPromocion;
+		result = prime * result + ((DFin == null) ? 0 : DFin.hashCode());
+		result = prime * result + ((DInicio == null) ? 0 : DInicio.hashCode());
+		result = prime * result + ((NPromocion == null) ? 0 : NPromocion.hashCode());
+		result = prime * result + ((TDescipcion == null) ? 0 : TDescipcion.hashCode());
+		return result;
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Promocion other = (Promocion) obj;
+		if (CPromocion != other.CPromocion)
+			return false;
+		if (DFin == null) {
+			if (other.DFin != null)
+				return false;
+		} else if (!DFin.equals(other.DFin))
+			return false;
+		if (DInicio == null) {
+			if (other.DInicio != null)
+				return false;
+		} else if (!DInicio.equals(other.DInicio))
+			return false;
+		if (NPromocion == null) {
+			if (other.NPromocion != null)
+				return false;
+		} else if (!NPromocion.equals(other.NPromocion))
+			return false;
+		if (TDescipcion == null) {
+			if (other.TDescipcion != null)
+				return false;
+		} else if (!TDescipcion.equals(other.TDescipcion))
+			return false;
+		return true;
+	}
+
+
 
 	public Promocion(int cPromocion, String nPromocion, Date dInicio, Date dFin, String tDescipcion) {
 		super();
